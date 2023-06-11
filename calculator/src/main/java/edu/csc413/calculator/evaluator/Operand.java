@@ -46,10 +46,10 @@ public class Operand {
         }
     }
 
-    public static void main(String[] args) {
-        Operand x = new Operand(5);
-        System.out.println(Operand.check("rtyer+"));
-        System.out.println(Operand.check("4562"));
-        System.out.println(x.getValue());
-    }
+//    public static void main(String[] args) {
+//        Operand x = new Operand(5);
+//        System.out.println(Operand.check("rtyer+"));
+//        System.out.println(Operand.check("4562"));
+//        System.out.println(x.getValue());
+//    }
 }

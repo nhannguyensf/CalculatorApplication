@@ -9,6 +9,11 @@ public class PowerOperator extends Operator {
     }
 
     @Override
+    public String getToken() {
+        return "^";
+    }
+
+    @Override
     public Operand execute(Operand operandOne, Operand operandTwo) {
         return new Operand((int) Math.pow(operandOne.getValue(), operandTwo.getValue()));
     }

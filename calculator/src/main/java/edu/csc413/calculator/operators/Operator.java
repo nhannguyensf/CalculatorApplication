@@ -24,6 +24,8 @@ public abstract class Operator {
         operators.put("/", new DivideOperator());
         operators.put("*", new MultiplyOperator());
         operators.put("^", new PowerOperator());
+        operators.put("(", new LeftParenthesisOperator());
+        operators.put(")", new RightParenthesisOperator());
     }
 
 
@@ -63,4 +65,6 @@ public abstract class Operator {
     public static boolean check(String token) {
         return operators.containsKey(token);
     }
+
+    public abstract String getToken();
 }

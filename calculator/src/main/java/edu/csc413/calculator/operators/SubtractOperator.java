@@ -9,6 +9,11 @@ public class SubtractOperator extends Operator {
     }
 
     @Override
+    public String getToken() {
+        return "-";
+    }
+
+    @Override
     public Operand execute(Operand operandOne, Operand operandTwo) {
         return new Operand(operandOne.getValue() - operandTwo.getValue());
     }

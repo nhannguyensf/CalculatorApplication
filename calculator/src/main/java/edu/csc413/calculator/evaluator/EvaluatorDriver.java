@@ -30,7 +30,7 @@ public class EvaluatorDriver {
      */
     static {
         EvaluatorDriver.testExpressions = new HashMap<>();
-        EvaluatorDriver.testExpressions.put("1+2", "2");
+        EvaluatorDriver.testExpressions.put("1+2", "3");
         EvaluatorDriver.testExpressions.put("1/2", "0");
         EvaluatorDriver.testExpressions.put("1+2*3", "7");
         EvaluatorDriver.testExpressions.put("(1+2)*3", "9");
