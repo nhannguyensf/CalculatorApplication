@@ -5,25 +5,32 @@ package edu.csc413.calculator.evaluator;
  * in a valid mathematical expression.
  */
 public class Operand {
+    private int value;
+
     /**
      * construct operand from string token.
      */
     public Operand(String token) {
-
+//        this.value = Integer.parseInt(token);
+        try {
+            value = Integer.parseInt(token);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid operand: " + token);
+        }
     }
 
     /**
      * construct operand from integer
      */
     public Operand(int value) {
-
+        this.value = value;
     }
 
     /**
      * return value of operand
      */
     public int getValue() {
-        return 0;
+        return value;
     }
 
     /**
@@ -31,6 +38,18 @@ public class Operand {
      * operand.
      */
     public static boolean check(String token) {
-        return false;
+        try {
+            Integer.parseInt(token);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Operand x = new Operand(5);
+        System.out.println(Operand.check("rtyer+"));
+        System.out.println(Operand.check("4562"));
+        System.out.println(x.getValue());
     }
 }
