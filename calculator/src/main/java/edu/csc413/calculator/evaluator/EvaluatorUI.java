@@ -14,11 +14,11 @@ public class EvaluatorUI extends JFrame implements ActionListener {
     // numbered from left to right, top to bottom
     // bText[] array contains the text for corresponding buttons
     private static final String[] buttonText = {
-        "7", "8", "9", "+",
-        "4", "5", "6", "-", 
-        "1", "2", "3", "*", 
-        "(", "0", ")", "/", 
-        "C", "CE", "=", "^"
+            "7", "8", "9", "+",
+            "4", "5", "6", "-",
+            "1", "2", "3", "*",
+            "(", "0", ")", "/",
+            "C", "CE", "=", "^"
     };
 
     /**
@@ -71,11 +71,28 @@ public class EvaluatorUI extends JFrame implements ActionListener {
     /**
      * This function is triggered anytime a button is pressed
      * on our Calculator GUI.
+     *
      * @param actionEventObject Event object generated when a
-     *                    button is pressed.
+     *                          button is pressed.
      */
     public void actionPerformed(ActionEvent actionEventObject) {
-
-
+        if (actionEventObject.getSource() instanceof JButton) {
+            JButton clickedButton = (JButton) actionEventObject.getSource();
+            String buttonText = clickedButton.getText();
+            if (buttonText.equals("=")) {
+                String expression = expressionTextField.getText();
+                Evaluator evaluator = new Evaluator();
+                try {
+                    int result = evaluator.evaluateExpression(expression);
+                    expressionTextField.setText(Integer.toString(result));
+                } catch (InvalidTokenException e) {
+                    expressionTextField.setText("Invalid Expression");
+                }
+            } else if (buttonText.equals("C")) {
+                expressionTextField.setText("");
+            } else {
+                expressionTextField.setText(expressionTextField.getText() + buttonText);
+            }
+        }
     }
 }
