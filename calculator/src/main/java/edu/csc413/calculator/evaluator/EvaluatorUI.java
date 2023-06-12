@@ -87,6 +87,10 @@ public class EvaluatorUI extends JFrame implements ActionListener {
                     expressionTextField.setText(String.valueOf(result));
                 } catch (InvalidTokenException e) {
                     expressionTextField.setText("Invalid Expression");
+                } catch (java.util.EmptyStackException e) {
+                    expressionTextField.setText("*Invalid Expression*");
+                } catch (java.lang.ArithmeticException e) {
+                    expressionTextField.setText("Math Error");
                 }
             } else if (buttonText.equals("C")) {
                 expressionTextField.setText("");
@@ -99,10 +103,12 @@ public class EvaluatorUI extends JFrame implements ActionListener {
             }
         }
     }
+
     private int evaluateExpression(String expression) throws InvalidTokenException {
         Evaluator evaluator = new Evaluator();
         return evaluator.evaluateExpression(expression);
     }
+
     private String removeLastEntry(String expression) {
         if (!expression.isEmpty()) {
             return expression.substring(0, expression.length() - 1);
