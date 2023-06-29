@@ -76,6 +76,7 @@ public class EvaluatorUI extends JFrame implements ActionListener {
      *                          button is pressed.
      */
     public void actionPerformed(ActionEvent actionEventObject) {
+//        String clickedButton = actionEventObject.getActionCommand()
         if (actionEventObject.getSource() instanceof JButton) {
             JButton clickedButton = (JButton) actionEventObject.getSource();
             String buttonText = clickedButton.getText();
